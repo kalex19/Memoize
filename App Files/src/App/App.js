@@ -11,27 +11,47 @@ export default class App extends Component {
   constructor(){
   super();
   this.state = {
-    questionSetKey: null,
-    language: null,
-    codeSnippetQ: null,
+    data: [],
+    questionSetKey: 1,
+    language: '',
+    codeSnippetQ: "/images/HTML2.png",
     answer: [],
     answerId: null,
     start: false,
-    cardId: 0,
     score: 0,
-    questionCount: 0
 //all state needs to live here
   }
 }
+
+
+ componentDidMount() {
+    fetch("https://fe-apps.herokuapp.com/api/v1/memoize/1901/kalex19/questions")
+    .then(response => response.json()) 
+    .then(selectQuestion => {
+      this.setState({       
+        data: selectQuestion.questions
+      });
+    })
+    .catch(error => console.log('Data Error', error));
+}
+
+
 
 handleClick = (e) => {
   e.preventDefault()
   this.setState({
     start: true
   })
-  console.log('start');
+  this.filterQuestion();
 }
 
+filterQuestion() {
+  let selectedObject = this.state.data.filter(obj => 
+    obj.questionSetKey === this.state.questionSetKey)
+  this.setState({
+    codeSnippetQ: selectedObject.codeSnippetQ
+  })
+}
 
 
   render() {
@@ -40,13 +60,14 @@ handleClick = (e) => {
     let answerCard;
 
     if(this.state.start){
-      questionCard = <QuestionCard questionSetKey={this.state.questionSetKey} codeSnippiet={this.state.codeSnippetQ} cardId={this.state.cardId} questionCount={this.state.questionCount}/>
+      questionCard = <QuestionCard questionSetKey={this.state.questionSetKey} codeSnippet={this.state.codeSnippetQ} />
     } 
 
     if(this.state.start) {
       answerCard= <AnswerCard answer={this.state.answer} answerId={this.state.answerId} score={this.state.score}/>
     }
-    //if start button is pressed, this.state.start becomes false. If false, add class of App-hidden and create Question Card component, Card components, increment card counter upon render in component
+    
+
     return (
       <div className="App">
         <header className="App-header">

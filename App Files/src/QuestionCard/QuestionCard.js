@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-import image from '../images/CSS1.png';
 import Style from './QuestionCard.scss';
 
 
@@ -27,7 +26,7 @@ render() {
 
 return (
     <div className="QuestionCard-container">
-    <img className="Question-image" src={this.selectImage} alt="code snippet image"/>
+    <img className="Question-image" src={require(`..${this.props.codeSnippet}`)} alt="code snippet image"/>
     </div>
     ) 
   }
