@@ -67,7 +67,6 @@ export default class App extends Component {
       state={this.state.start} />
       questionCard=<QuestionCard 
       dataObj={this.state.data[this.state.questionSetKey]}
-      score={this.state.score}
       questionSetKey={this.state.questionSetKey}
       scoreAnimation ={this.state.scoreAnimation}
       incrementKey={this.incrementQuestionSetKey}
