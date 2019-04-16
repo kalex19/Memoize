@@ -1,5 +1,9 @@
 import React, {Component} from 'react';
 import Style from './QuestionCard.scss';
+//host all images on imgur
+//change dataset links
+//import? probably not 
+//codeSnippetQ goes through each image
 
 
 
@@ -25,10 +29,10 @@ render() {
   //   //filter through/trigger function to iterate through array and display each image in each object on submit !submit lives under the answers component....so going to have to pass things up and down
   // }
 const {codeSnippetQ} = this.props;
-const final = '..' + codeSnippetQ;
+console.log({codeSnippetQ});
 return (
     <div className="QuestionCard-container">
-    <img className="Question-image" src={final} alt="code snippet image"/>
+    <img className="Question-image" src={codeSnippetQ} alt="code snippet image"/>
     </div>
     ) 
   }

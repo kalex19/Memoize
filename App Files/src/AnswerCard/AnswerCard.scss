@@ -3,7 +3,6 @@
 
 .AnswerCard-container {
   margin: 0 20%;
-  border: red 5px solid;
   width: 60%;
   min-height: 30vh;
 }
@@ -16,12 +15,20 @@
 .Answer-card {
   color: $main-color; 
   font-size: 1em;
+  margin: 2vh 1vh;
+}
+
+.Button-one,
+.Button-two,
+.Button-three {
+  margin: 1vh;
 }
 
 .Answer-submit {
-  margin: 0 10vh;
+  margin: 3vh;
   padding: 1vh;
   background-color: $background-color;
-  color: #0f0;
-  border: $main-color 3px dashed;
+  color: $main-color;
+  border: rgb(36, 159, 41) 3px dashed;
+  font-size: 2rem;
 }
