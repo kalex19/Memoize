@@ -36,7 +36,6 @@ return (
       <div className="AnswerCard-container">
       <AnswerCard 
       dataObj={this.props.dataObj}
-      score={this.props.score}  
       questionSetKey={this.props.questionSetKey}
       scoreAnimation ={this.state.scoreAnimation}
       switchAnswer={this.switchAnswer}
