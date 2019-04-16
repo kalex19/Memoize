@@ -26,7 +26,7 @@ render() {
 
 return (
     <div className="QuestionCard-container">
-    <img className="Question-image" src={require(`..${this.props.codeSnippet}`)} alt="code snippet image"/>
+    <img className="Question-image" src={require(`..${this.props.codeSnippetQ}`)} alt="code snippet image"/>
     </div>
     ) 
   }

@@ -14,12 +14,11 @@ export default class App extends Component {
     data: [],
     questionSetKey: 1,
     language: '',
-    codeSnippetQ: "/images/HTML2.png",
+    codeSnippetQ: '',
     answer: [],
     answerId: null,
     start: false,
-    score: 0,
-//all state needs to live here
+    score: 0
   }
 }
 
@@ -37,21 +36,23 @@ export default class App extends Component {
 
 
 
-handleClick = (e) => {
-  e.preventDefault()
-  this.setState({
-    start: true
-  })
-  this.filterQuestion();
-}
+  handleClick = (e) => {
+    e.preventDefault()
+    this.setState({
+      start: true
+    })
+    this.selectQuestion()
+  }
 
-filterQuestion() {
-  let selectedObject = this.state.data.filter(obj => 
-    obj.questionSetKey === this.state.questionSetKey)
-  this.setState({
-    codeSnippetQ: selectedObject.codeSnippetQ
-  })
-}
+  selectQuestion() {
+    let codeSnippetQ= this.state.data.filter(q => q.questionSetKey === this.state.questionSetKey).pop().codeSnippetQ
+    console.log(codeSnippetQ)
+    /// ^ image link
+    this.setState({
+      codeSnippetQ: codeSnippetQ
+
+    })
+  }
 
 
   render() {
@@ -60,7 +61,7 @@ filterQuestion() {
     let answerCard;
 
     if(this.state.start){
-      questionCard = <QuestionCard questionSetKey={this.state.questionSetKey} codeSnippet={this.state.codeSnippetQ} />
+      questionCard = <QuestionCard questionSetKey={this.state.questionSetKey} codeSnippetQ={this.state.codeSnippetQ} data={this.state.data} />
     } 
 
     if(this.state.start) {
