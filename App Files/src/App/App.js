@@ -14,12 +14,11 @@ export default class App extends Component {
     data: [],
     questionSetKey: 1,
     language: '',
-    codeSnippetQ: "/images/HTML2.png",
+    codeSnippetQ: '',
     answer: [],
     answerId: null,
     start: false,
-    score: 0,
-//all state needs to live here
+    score: 0
   }
 }
 
@@ -36,22 +35,31 @@ export default class App extends Component {
 }
 
 
+  handleClick = (e) => {
+    e.preventDefault()
+    this.setState({
+      start: true
+    })
+    this.selectQuestion()
+    this.selectAnswer()
+  }
 
-handleClick = (e) => {
-  e.preventDefault()
-  this.setState({
-    start: true
-  })
-  this.filterQuestion();
-}
+  selectQuestion() {
+    let codeSnippetQ= this.state.data.filter(q => q.questionSetKey === this.state.questionSetKey).pop().codeSnippetQ
+    this.setState({
+      codeSnippetQ: codeSnippetQ
+    })
+    console.log('csq',codeSnippetQ)
+  }
 
-filterQuestion() {
-  let selectedObject = this.state.data.filter(obj => 
-    obj.questionSetKey === this.state.questionSetKey)
-  this.setState({
-    codeSnippetQ: selectedObject.codeSnippetQ
-  })
-}
+
+  selectAnswer() {
+    let answer = this.state.data.filter(q => q.questionSetKey === this.state.questionSetKey).pop().answer
+      this.setState({
+      answer: answer
+    })
+      console.log('hello', answer);
+  }
 
 
   render() {
@@ -60,7 +68,7 @@ filterQuestion() {
     let answerCard;
 
     if(this.state.start){
-      questionCard = <QuestionCard questionSetKey={this.state.questionSetKey} codeSnippet={this.state.codeSnippetQ} />
+      questionCard = <QuestionCard questionSetKey={this.state.questionSetKey} codeSnippetQ={this.state.codeSnippetQ} data={this.state.data} />
     } 
 
     if(this.state.start) {
@@ -71,18 +79,22 @@ filterQuestion() {
     return (
       <div className="App">
         <header className="App-header">
-        <div className={this.state.start ? "Score" : "App-hidden"}>
-        <h1 className="Score-text">SCORE:</h1>
-        </div>
-          <h1 className="App-title">
-            CodeSnippits
-          </h1>
-          <div className={this.state.start ? "Question-count" : "App-hidden"}>
-          <h1 className="Question-count-text">QUESTION #</h1>
-          </div>
-          </header>
+            <h1 className="App-title">
+              CodeSnippits
+            </h1>
+            <aside className='Score-container'>
+              <div className={this.state.start ? "Score" : "App-hidden"}>
+               <h1 className="Score-text">SCORE:</h1>
+               <p className="Score-text">pts</p>
+              </div>
+              <div className={this.state.start ? "Question-count" : "App-hidden"}>
+                 <h1 className="Question-count-text">QUESTION #</h1>
+                 <p className="Question-count-text">/30</p>
+              </div>
+          </aside>
+        </header>
           <h3 className={this.state.start ? "App-hidden" : "App-instructions"}>Welcome! Analyze the code snippet. Select the correct answer. Submit to W!N.</h3>
-          <h3 className={this.state.start ? "App-instructions" : "App-hidden"}>Good Luck! Scroll to view answers.</h3>
+          <h3 className={this.state.start ? "App-instructions" : "App-hidden"}>Select your answer. Scroll to view options.</h3>
           <button className={this.state.start ? "App-hidden" : "App-btn"} onClick={this.handleClick}>START</button>
         {questionCard}
         {answerCard}
