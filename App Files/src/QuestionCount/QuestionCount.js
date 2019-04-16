@@ -13,7 +13,7 @@ render () {
     return(
             <div className={this.props.start ? "App-hidden" : "Question-count"}>
                 <h1 className="Question-count-text">QUESTION #</h1>
-                <p className="Question-count-text">{this.state.questionSetKey} / 30</p>
+                <p className="Question-count-text">{this.props.questionCount} / 30</p>
             </div>
         )
     }

@@ -14,7 +14,8 @@ export default class App extends Component {
     data: [],
     questionSetKey: 1,
     start: false,
-    score: 0
+    score: 0,
+    scoreAnimation: false
   }
 }
 
@@ -45,14 +46,16 @@ export default class App extends Component {
     if(this.state.start) {
       score=<Score 
       score={this.state.score} 
-      state={this.state.start} />
+      state={this.state.start}
+      scoreAnimation ={this.state.scoreAnimation} />
       questionCount=<QuestionCount 
-      questionCount={this.questionSetKey} 
+      questionCount={this.state.questionSetKey} 
       state={this.state.start} />
       questionCard=<QuestionCard 
       dataObj={this.state.data[this.state.questionSetKey]}
       score={this.state.score}
-      questionSetKey={this.state.questionSetKey} /> 
+      questionSetKey={this.state.questionSetKey}
+      scoreAnimation ={this.state.scoreAnimation} /> 
     }
     
     return (
@@ -64,8 +67,9 @@ export default class App extends Component {
           {score}
           {questionCount}
         </header>
-          <h3 className={this.state.start ? "App-hidden" : "App-instructions"}>Welcome! Analyze the code snippet. Select the correct answer. Submit to W!N.</h3>
-          <h3 className={this.state.start ? "App-instructions" : "App-hidden"}>Select your answer. <strong className="Text-bold">Scroll</strong> to view options.</h3>
+          <h3 className={this.state.start ? "App-hidden" : "App-instructions"} 
+          >Welcome! Analyze the code snippet. Select the correct answer. Submit to W!N.</h3> 
+          <h3 className={this.state.start ? "App-instructions" : "App-hidden"}>Select your answer. <strong className="Text-bold">Scroll</strong> to view options.</h3> 
           <button className={this.state.start ? "App-hidden" : "App-btn"} onClick={this.handleClick}>START</button>
           {questionCard}
       </div>

@@ -6,7 +6,9 @@ export default class AnswerCard extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      checkedAnswer: 0
+      checkedAnswer: 0,
+      noScoreAnimation: false,
+      resetBtn: false
     }
   }
 
@@ -20,44 +22,52 @@ export default class AnswerCard extends Component {
   submitAnswer = (e) => {
     e.preventDefault()
     if(this.state.checkedAnswer === this.props.dataObj.answerId){
-      console.log('inside if')
       this.addScore()
       this.switchAnswer()
     } else {
-      console.log('inside else')
       this.noScoreAnimation()
       this.switchAnswer()
     }
   }
 
-  // addScore(props) {
-  //   this.setState({
-  //    score: this.state.score++
-  //   })
-      //this.scoreAnimation()
-  // }
+  addScore() {
+    const score = this.score++
+      this.setState({
+      score: score
+      })
+    this.scoreAnimation()
+  }
 
-  // scoreAnimation(){
-  //   add class to score box that illuminates the score box when score is given
-  //   how to pass this up to App?
-  // }
+  scoreAnimation(){
+    this.setState({
+     scoreAnimation: true
+    })
+  }
 
-  // noScoreAnimation() {
-  //   fly through animation
-  // }
+  noScoreAnimation() {
+    this.setState({
+      noScoreAnimation: true
+    })
+  }
+  //add to this, what happens?
 
-  // switchAnswer() {
-  //  this.setState({
-  //   questionSetkey: questionSetKey++
-  //  })
-  //should rerender and switch to the next question
-  //need to have condition is questionSetKey = 30, trigger another function to end game & reset (endGame)
-  // }
+  switchAnswer() {
+    const questionSetKey = this.questionSetKey++
+    if(questionSetKey <= 30){
+      this.setState({
+        questionSetkey: questionSetKey
+      })
+      //  should rerender and switch to the next question
+    } else {
+      this.endGame()
+    }
+  }
 
-  //endGame() {
-    //pass up to app
-    //replace submit button with restart button which resets state, clears inputs, refreshes page
-  //}
+   endGame() {
+    this.setState({
+      resetBtn: true
+    })
+   }
 
 
 render() {
@@ -81,6 +91,10 @@ render() {
         </div>
           <input type="submit" className="Answer-submit"/>
       </form>
+      <div className={this.state.reset ? "Reset-game" : "App-hidden"}>
+        <label className="Reset-label" htmlFor="reset">Reset Game</label>
+        <input id="reset" type="submit" className="Answer-reset"/>
+      </div>
     </section>
     )
 }
