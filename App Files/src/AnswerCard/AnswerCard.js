@@ -6,33 +6,29 @@ export default class AnswerCard extends Component {
   constructor(props) {
     super(props);
     this.state = {
-
+      checkedAnswer: 0
     }
   }
 
-  //on change - toggle checked
-  // checkRadio() {
-  //   if(this button checked){
-  //     uncheck other two
-  //   } else if (this button checked){
-  //     uncheck other two
-  //   } else (this button checked) {
-  //     uncheck other two
-  //   }
-  // }
+  radioState = (e) => {
+    e.preventDefault()
+    this.setState({
+      checkedAnswer: parseInt(e.target.value)
+    })
+  }
 
-  // submitAnswer(e, props) {
-  //   console.log(this.props)
-  //   e.preventDefault()
-  //   if(e.target.id === this.props.answerId){
-  //     this.addScore()
-  //     this.switchAnswer()
-  //   } else {
-  //     this.noScoreAnimation()
-  //     this.switchAnswer()
-  //   }
-  //   console.log('e', e.target.id);
-  // }
+  submitAnswer = (e) => {
+    e.preventDefault()
+    if(this.state.checkedAnswer === this.props.dataObj.answerId){
+      console.log('inside if')
+      this.addScore()
+      this.switchAnswer()
+    } else {
+      console.log('inside else')
+      this.noScoreAnimation()
+      this.switchAnswer()
+    }
+  }
 
   // addScore(props) {
   //   this.setState({
@@ -65,25 +61,26 @@ export default class AnswerCard extends Component {
 
 
 render() {
-  let answerOne = this.props.answer[0];
-  let answerTwo = this.props.answer[1];
-  let answerThree = this.props.answer[2];
 
+  const { answer } = this.props.dataObj
+  
   return (
     <section className="AnswerCard-container">
-      <div className="Answer-card">
-      <input id="One" type="radio" className="Button-one"/>
-      <span>{answerOne}</span>
-      </div>
-      <div className="Answer-card">
-      <input id="two" type="radio" className="Button-two" />
-      <span>{answerTwo}</span>
-      </div>
-      <div className="Answer-card">
-      <input id="three" type="radio" className="Button-three" />
-      <span>{answerThree}</span>
-      </div>
-        <button className="Answer-submit" onClick={this.submitAnswer}>Submit</button>
+    <form onSubmit={this.submitAnswer}>
+        <div className="Answer-card">
+         <input id="answerOne" value="1" type="radio" name='answer' className="Button-one" onChange={this.radioState}/>
+          <label htmlFor="answerOne">{answer[0]}</label>
+        </div>
+        <div className="Answer-card">
+          <input id="answerTwo" value="2" type="radio" name='answer' className="Button-two" onChange={this.radioState}/>
+          <label htmlFor="answerTwo">{answer[1]}</label>
+        </div>
+        <div className="Answer-card">
+          <input id="answerThree" value="3" type="radio" name='answer' className="Button-three" onChange={this.radioState}/>
+          <label htmlFor="answerThree">{answer[2]}</label>
+        </div>
+          <input type="submit" className="Answer-submit"/>
+      </form>
     </section>
     )
 }
