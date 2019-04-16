@@ -46,12 +46,15 @@ export default class App extends Component {
 
   selectQuestion() {
     let codeSnippetQ= this.state.data.filter(q => q.questionSetKey === this.state.questionSetKey).pop().codeSnippetQ
-    console.log(codeSnippetQ)
-    /// ^ image link
     this.setState({
       codeSnippetQ: codeSnippetQ
-
     })
+  }
+  selectOptionArray() {
+      this.setState({
+      answer: this.state.data.answer
+    })
+      console.log(this.state.answer);
   }
 
 
