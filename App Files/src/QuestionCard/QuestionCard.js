@@ -12,13 +12,18 @@ export default class QuestionCard extends Component {
     }
   }
 
-  selectQuestion() {
-    let codeSnippetQ= this.props.data.filter(q => q.questionSetKey === this.props.questionSetKey).pop().codeSnippetQ
-    this.setState({
-      codeSnippetQ: codeSnippetQ
-    })
+switchAnswer = () => {
+  this.props.incrementKey()
+  if(this.props.questionSetKey === 30){
+    this.endGame()
   }
-//where to call this?
+}
+
+ endGame= () => {
+  this.setState({
+    start: false
+  })
+ }
 
 render() {
     const {codeSnippetQ} = this.props.dataObj;
@@ -33,7 +38,9 @@ return (
       dataObj={this.props.dataObj}
       score={this.props.score}  
       questionSetKey={this.props.questionSetKey}
-      scoreAnimation ={this.state.scoreAnimation} />
+      scoreAnimation ={this.state.scoreAnimation}
+      switchAnswer={this.switchAnswer}
+      incrementScore={this.props.incrementScore}/>
       </div>
     </div> 
     ) 

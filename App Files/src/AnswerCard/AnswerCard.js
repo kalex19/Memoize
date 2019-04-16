@@ -21,52 +21,27 @@ export default class AnswerCard extends Component {
   submitAnswer = (e) => {
     e.preventDefault()
     if(this.state.checkedAnswer === this.props.dataObj.answerId){
-      this.addScore()
-      this.switchAnswer()
+      // this.props.incrementScore()
+      this.scoreAnimation()
+      this.props.switchAnswer()
     } else {
       this.noScoreAnimation()
-      this.switchAnswer()
+      this.props.switchAnswer()
     }
   }
 
-  addScore() {
-    const score = this.score++
-      this.setState({
-      score: score
-      })
-    this.scoreAnimation()
-  }
-
-  scoreAnimation(){
+  scoreAnimation = () => {
     this.setState({
      scoreAnimation: true
     })
   }
 
-  noScoreAnimation() {
+  noScoreAnimation = () => {
     this.setState({
       noScoreAnimation: true
     })
   }
   //add to this, what happens?
-
-  switchAnswer() {
-    const questionSetKey = this.questionSetKey++
-    if(questionSetKey <= 30){
-      this.setState({
-        questionSetkey: questionSetKey
-      })
-      //  should rerender and switch to the next question
-    } else {
-      this.endGame()
-    }
-  }
-
-   endGame() {
-    this.setState({
-      start: false
-    })
-   }
 
 
 render() {

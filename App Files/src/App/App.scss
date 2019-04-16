@@ -41,6 +41,26 @@
   font-size: 3rem;
 }
 
+.Reset-game {
+  display: block;
+  height: 50vh;
+  display: grid;
+  margin: 15%;
+  width: 80%;
+  border: 2px red solid;
+  color: white;
+  justify-content: center;
+}
+
+.Answer-reset {
+  padding: 0px 6%;
+  margin: 2% 0;
+  height: 9vh;
+  border: 2px red solid;
+  color: $main-color;
+  background:$background-color;
+}
+
 @keyframes App-logo-spin {
   from {
     color: red;
