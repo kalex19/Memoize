@@ -24,7 +24,7 @@ export default class App extends Component {
 
 
  componentDidMount() {
-    fetch("https://fe-apps.herokuapp.com/api/v1/memoize/1901/kalex19/questions")
+    fetch("https://fe-apps.herokuapp.com/api/v1/memoize/1901/kalex19-update/questions")
     .then(response => response.json()) 
     .then(selectQuestion => {
       this.setState({       
@@ -58,7 +58,7 @@ export default class App extends Component {
       this.setState({
       answer: answer
     })
-      console.log('hello', answer);
+
   }
 
 
@@ -72,7 +72,7 @@ export default class App extends Component {
     } 
 
     if(this.state.start) {
-      answerCard= <AnswerCard answer={this.state.answer} answerId={this.state.answerId} score={this.state.score}/>
+      answerCard= <AnswerCard answer={this.state.answer} answerId={this.state.answerId} score={this.state.score} questionSetKey={this.state.questionSetKey}/>
     }
     
 
@@ -85,7 +85,7 @@ export default class App extends Component {
             <aside className='Score-container'>
               <div className={this.state.start ? "Score" : "App-hidden"}>
                <h1 className="Score-text">SCORE:</h1>
-               <p className="Score-text">pts</p>
+               <p className="Score-text">`{this.state.score}`pts</p>
               </div>
               <div className={this.state.start ? "Question-count" : "App-hidden"}>
                  <h1 className="Question-count-text">QUESTION #</h1>
@@ -94,7 +94,7 @@ export default class App extends Component {
           </aside>
         </header>
           <h3 className={this.state.start ? "App-hidden" : "App-instructions"}>Welcome! Analyze the code snippet. Select the correct answer. Submit to W!N.</h3>
-          <h3 className={this.state.start ? "App-instructions" : "App-hidden"}>Select your answer. Scroll to view options.</h3>
+          <h3 className={this.state.start ? "App-instructions" : "App-hidden"}>Select your answer. <strong className="Text-bold">Scroll</strong> to view options.</h3>
           <button className={this.state.start ? "App-hidden" : "App-btn"} onClick={this.handleClick}>START</button>
         {questionCard}
         {answerCard}
