@@ -3,31 +3,89 @@ import './App.scss';
 import Data from '../Data/Data.js';
 import Score from '../Score/Score.js';
 import QuestionCount from '../QuestionCount/QuestionCount.js';
-import StartPopUp from '../StartPopUp/PopUp.js';
 import QuestionCard from '../QuestionCard/QuestionCard.js';
+import AnswerCard from '../AnswerCard/AnswerCard.js';
+
 
 export default class App extends Component {
   constructor(){
   super();
   this.state = {
-    questionSetKey: null,
-    language: null,
-    codeSnippetQ: null,
+    data: [],
+    questionSetKey: 1,
+    language: '',
+    codeSnippetQ: "/images/HTML2.png",
     answer: [],
-    answerId: null
+    answerId: null,
+    start: false,
+    score: 0,
 //all state needs to live here
   }
 }
+
+
+ componentDidMount() {
+    fetch("https://fe-apps.herokuapp.com/api/v1/memoize/1901/kalex19/questions")
+    .then(response => response.json()) 
+    .then(selectQuestion => {
+      this.setState({       
+        data: selectQuestion.questions
+      });
+    })
+    .catch(error => console.log('Data Error', error));
+}
+
+
+
+handleClick = (e) => {
+  e.preventDefault()
+  this.setState({
+    start: true
+  })
+  this.filterQuestion();
+}
+
+filterQuestion() {
+  let selectedObject = this.state.data.filter(obj => 
+    obj.questionSetKey === this.state.questionSetKey)
+  this.setState({
+    codeSnippetQ: selectedObject.codeSnippetQ
+  })
+}
+
+
   render() {
+
+    let questionCard;
+    let answerCard;
+
+    if(this.state.start){
+      questionCard = <QuestionCard questionSetKey={this.state.questionSetKey} codeSnippet={this.state.codeSnippetQ} />
+    } 
+
+    if(this.state.start) {
+      answerCard= <AnswerCard answer={this.state.answer} answerId={this.state.answerId} score={this.state.score}/>
+    }
+    
+
     return (
       <div className="App">
         <header className="App-header">
+        <div className={this.state.start ? "Score" : "App-hidden"}>
+        <h1 className="Score-text">SCORE:</h1>
+        </div>
           <h1 className="App-title">
             CodeSnippits
           </h1>
-          <h3 className="App-instructions">Welcome! Analyze the code snippet. Select the correct answer. Submit to W!N.</h3>
-        </header>
-        <QuestionCard key={this.state.questionSetKey} question={this.state.codeSnippetQ}/>
+          <div className={this.state.start ? "Question-count" : "App-hidden"}>
+          <h1 className="Question-count-text">QUESTION #</h1>
+          </div>
+          </header>
+          <h3 className={this.state.start ? "App-hidden" : "App-instructions"}>Welcome! Analyze the code snippet. Select the correct answer. Submit to W!N.</h3>
+          <h3 className={this.state.start ? "App-instructions" : "App-hidden"}>Good Luck! Scroll to view answers.</h3>
+          <button className={this.state.start ? "App-hidden" : "App-btn"} onClick={this.handleClick}>START</button>
+        {questionCard}
+        {answerCard}
       </div>
     );
   }
