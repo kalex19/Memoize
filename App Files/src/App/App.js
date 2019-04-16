@@ -15,7 +15,8 @@ export default class App extends Component {
     questionSetKey: 1,
     start: false,
     score: 0,
-    scoreAnimation: false
+    scoreAnimation: false,
+    
   }
 }
 
@@ -56,6 +57,15 @@ export default class App extends Component {
       score={this.state.score}
       questionSetKey={this.state.questionSetKey}
       scoreAnimation ={this.state.scoreAnimation} /> 
+    } else {
+      //render this....
+      <div className={this.state.start ? "App-hidden" : "Reset-game"}>
+       <h1>Game Over....</h1>
+       <p>Review your wrong answers.</p>
+       //connect to local storage this show missed questions
+      <label className="Reset-label" htmlFor="reset">Reset Game</label>
+      <input id="reset" type="submit" className="Answer-reset"/>
+    </div>
     }
     
     return (

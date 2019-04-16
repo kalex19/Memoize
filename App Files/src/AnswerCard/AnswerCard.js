@@ -8,7 +8,6 @@ export default class AnswerCard extends Component {
     this.state = {
       checkedAnswer: 0,
       noScoreAnimation: false,
-      resetBtn: false
     }
   }
 
@@ -65,7 +64,7 @@ export default class AnswerCard extends Component {
 
    endGame() {
     this.setState({
-      resetBtn: true
+      start: false
     })
    }
 
@@ -91,10 +90,6 @@ render() {
         </div>
           <input type="submit" className="Answer-submit"/>
       </form>
-      <div className={this.state.reset ? "Reset-game" : "App-hidden"}>
-        <label className="Reset-label" htmlFor="reset">Reset Game</label>
-        <input id="reset" type="submit" className="Answer-reset"/>
-      </div>
     </section>
     )
 }
