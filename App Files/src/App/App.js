@@ -13,15 +13,12 @@ export default class App extends Component {
   this.state = {
     data: [],
     questionSetKey: 1,
-    language: '',
-    codeSnippetQ: '',
-    answer: [],
-    answerId: null,
     start: false,
-    score: 0
+    score: 0,
+    scoreAnimation: false,
+    
   }
 }
-
 
  componentDidMount() {
     fetch("https://fe-apps.herokuapp.com/api/v1/memoize/1901/kalex19-update/questions")
@@ -34,70 +31,57 @@ export default class App extends Component {
     .catch(error => console.log('Data Error', error));
 }
 
-
   handleClick = (e) => {
     e.preventDefault()
     this.setState({
       start: true
     })
-    this.selectQuestion()
-    this.selectAnswer()
   }
-
-  selectQuestion() {
-    let codeSnippetQ= this.state.data.filter(q => q.questionSetKey === this.state.questionSetKey).pop().codeSnippetQ
-    this.setState({
-      codeSnippetQ: codeSnippetQ
-    })
-    console.log('csq',codeSnippetQ)
-  }
-
-
-  selectAnswer() {
-    let answer = this.state.data.filter(q => q.questionSetKey === this.state.questionSetKey).pop().answer
-      this.setState({
-      answer: answer
-    })
-
-  }
-
-
+//async issues
   render() {
 
+    let score;
+    let questionCount;
     let questionCard;
-    let answerCard;
-
-    if(this.state.start){
-      questionCard = <QuestionCard questionSetKey={this.state.questionSetKey} codeSnippetQ={this.state.codeSnippetQ} data={this.state.data} />
-    } 
 
     if(this.state.start) {
-      answerCard= <AnswerCard answer={this.state.answer} answerId={this.state.answerId} score={this.state.score} questionSetKey={this.state.questionSetKey}/>
+      score=<Score 
+      score={this.state.score} 
+      state={this.state.start}
+      scoreAnimation ={this.state.scoreAnimation} />
+      questionCount=<QuestionCount 
+      questionCount={this.state.questionSetKey} 
+      state={this.state.start} />
+      questionCard=<QuestionCard 
+      dataObj={this.state.data[this.state.questionSetKey]}
+      score={this.state.score}
+      questionSetKey={this.state.questionSetKey}
+      scoreAnimation ={this.state.scoreAnimation} /> 
+    } else {
+      //render this....
+      <div className={this.state.start ? "App-hidden" : "Reset-game"}>
+       <h1>Game Over....</h1>
+       <p>Review your wrong answers.</p>
+       //connect to local storage this show missed questions
+      <label className="Reset-label" htmlFor="reset">Reset Game</label>
+      <input id="reset" type="submit" className="Answer-reset"/>
+    </div>
     }
     
-
     return (
       <div className="App">
         <header className="App-header">
             <h1 className="App-title">
               CodeSnippits
             </h1>
-            <aside className='Score-container'>
-              <div className={this.state.start ? "Score" : "App-hidden"}>
-               <h1 className="Score-text">SCORE:</h1>
-               <p className="Score-text">`{this.state.score}`pts</p>
-              </div>
-              <div className={this.state.start ? "Question-count" : "App-hidden"}>
-                 <h1 className="Question-count-text">QUESTION #</h1>
-                 <p className="Question-count-text">/30</p>
-              </div>
-          </aside>
+          {score}
+          {questionCount}
         </header>
-          <h3 className={this.state.start ? "App-hidden" : "App-instructions"}>Welcome! Analyze the code snippet. Select the correct answer. Submit to W!N.</h3>
-          <h3 className={this.state.start ? "App-instructions" : "App-hidden"}>Select your answer. <strong className="Text-bold">Scroll</strong> to view options.</h3>
+          <h3 className={this.state.start ? "App-hidden" : "App-instructions"} 
+          >Welcome! Analyze the code snippet. Select the correct answer. Submit to W!N.</h3> 
+          <h3 className={this.state.start ? "App-instructions" : "App-hidden"}>Select your answer. <strong className="Text-bold">Scroll</strong> to view options.</h3> 
           <button className={this.state.start ? "App-hidden" : "App-btn"} onClick={this.handleClick}>START</button>
-        {questionCard}
-        {answerCard}
+          {questionCard}
       </div>
     );
   }
