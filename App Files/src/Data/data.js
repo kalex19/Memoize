@@ -184,4 +184,4 @@ const questions = [
   }
 ]
 
-export default codeSnippets
+export default questions 
