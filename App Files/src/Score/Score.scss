@@ -1,32 +1,30 @@
 @import '../variables.scss';
 
 .Score {
+    border: dashed 1px $main-color;
     display: block;
     justify-content: center;
-    justify-content: space-between;
-    height: 15vh;
-    width: 25%;
     margin: 0 2%;
-    border: dashed 1px $main-color;
+    width: 25%;
   }
 
   .Score-animation {
-      font-size: 1em;
-      color: yellow;
       animation: bounceIn 2s;
-      pointer-events: none;
+      color: yellow;
+      font-size: 1em;
       margin: 1%;
+      pointer-events: none; 
     }
     
   .Score-text {
-    font-size: .6em;
     color: $main-color;
+    font-size: .6em;
   }
 
   .App-hidden {
+    margin: 0;
     visibility: hidden;
     width: 40%;
-    margin: 0;
   }
 
   @keyframes bounceIn {

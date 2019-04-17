@@ -7,15 +7,14 @@
 .App-header {
   display: flex; 
   flex-wrap: wrap;
-  justify-content: space-between;
-  margin: 2%;
   font-size: 4.5vh;
   justify-content: center;
+  margin: 2%;
 }
 
 .App-title {
-  margin: 2% 20%;
   animation: App-logo-spin infinite 20s ease-in-out;
+  margin: 2% 15%;
   pointer-events: none;
 }
 
@@ -27,38 +26,33 @@
   margin: 0 5%;
 }
 
-.Text-bold{
+.Text-bold {
   font-weight: 500;
   color: $button-accent-color;
 }
 
 .App-btn {
+  background-color: $background-color;
+  border: $button-accent-color 3px dashed;
+  color: $main-color;
+  font-size: 3rem;
   margin: 5vh;
   padding: 2vh;
-  background-color: $background-color;
-  color: $main-color;
-  border: $button-accent-color 3px dashed;
-  font-size: 3rem;
 }
 
 .Reset-game {
-  display: block;
-  height: 50vh;
-  display: grid;
-  margin: 15%;
-  width: 80%;
-  border: 2px $endgame-color solid;
   color: $main-color;
-  justify-content: center;
+  display: grid;
+  height: 50vh;
+  margin: 10% 40%;
+  width: 25%;
 }
 
 .Answer-reset {
-  padding: 0px 6%;
-  margin: 2% 0;
-  height: 9vh;
+  background:$background-color;
   border: 2px $endgame-color solid;
   color: $main-color;
-  background:$background-color;
+  height: 9vh;
 }
 
 @keyframes App-logo-spin {

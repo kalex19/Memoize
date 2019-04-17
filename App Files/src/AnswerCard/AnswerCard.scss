@@ -2,9 +2,6 @@
 
 
 .AnswerCard-container {
-  margin: 0%;
-  width: 100%;
-  min-height: 30vh;
   font-size: 1.2em;
 }
 
@@ -26,17 +23,17 @@
 }
 
 .Answer-submit {
-  margin: 3vh;
-  padding: 1vh;
-  background-color: $background-color;
   color: $main-color;
+  background-color: $background-color;
   border: $button-accent-color 3px dashed;
   font-size: 2rem;
+  margin: 3vh;
+  padding: 1vh;
 }
 
 @media screen and (max-width: 414px) {
   .AnswerCard-container {
-    width: 90%;
     margin: 0 5%;
+    width: 90%;
   }
 }
