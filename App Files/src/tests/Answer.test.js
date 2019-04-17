@@ -42,7 +42,6 @@ describe('AnswerCard', () => {
         submitAnswer={mockSubmitAnswer}
         />
       );
-    //   jest.spyOn(event, 'preventDefault');
     });
 
     it('should match the snapshot with all data passed in', () => {
@@ -72,8 +71,7 @@ describe('AnswerCard', () => {
         expect(mockNoScoreAnimation).not.toBeCalled();
     });
     
-    
-
-
-      
+    it("should save wrong answer object to local storage", () => {
+      //test here
+    }); 
   });

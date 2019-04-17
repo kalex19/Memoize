@@ -24,9 +24,15 @@ export default class AnswerCard extends Component {
       this.props.scoreAnimation()
       this.props.switchAnswer()
     } else {
+      this.setToStorage(e)
       this.props.noScoreAnimation()
       this.props.switchAnswer()
     }
+  }
+  
+  setToStorage = (e) => {
+    e.preventDefault();
+    localStorage.setItem('dataObj', JSON.stringify(this.props.dataObj));
   }
 
 render() {
@@ -37,7 +43,7 @@ render() {
     <section className="AnswerCard-container">
       <form onSubmit={this.submitAnswer}>
         <div className="Answer-card">
-         <input id="answerOne" value="1" type="radio" name='answer' className="Button-one" onChange={this.radioState}/>
+         <input id="answerOne" value="1" type="radio" name='answer' className="Button-one" onChange={this.radioState} checked/>
           <label htmlFor="answerOne">{answer[0]}</label>
         </div>
         <div className="Answer-card">

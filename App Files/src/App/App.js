@@ -60,11 +60,11 @@ export default class App extends Component {
 
   viewPractice = (e) => {
     e.preventDefault()
-    // JSON.parse(localStorage.getItem('posts')) || [];
-    // targetIdea.saveToStorage(ideas)
-    // saveToStorage(array) {
-    //   localStorage.setItem('posts', JSON.stringify(array));
-   // }//something with local storage
+    let arr = JSON.parse(localStorage.getItem('dataObj'));
+    this.setState({
+
+    })
+    //render on dom
   }
 
   resetGame = (e) => {
@@ -107,7 +107,7 @@ export default class App extends Component {
       <div className="Reset-game">
         <h1>Game Over....</h1>
         <p>Review Wrong Answers</p>
-        <input id="reset" type="Reset" value="Review" className="Answer-reset" onClick={this.viewPractice}/>
+        <input id="reset" type="Reset" value="Review" className="View-practice" onClick={this.viewPractice}/>
         <p>Play Game Again</p>
         <input id="reset" type="Reset" className="Answer-reset" onClick={this.resetGame}/>
       </div>;

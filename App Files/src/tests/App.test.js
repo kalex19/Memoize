@@ -72,7 +72,7 @@ describe('App', () => {
         expect(wrapper.state({scoreAnimation})).toBeFalsy(); 
       });
 
-      it('should save incoreect question to local storage', () => {
+      it('should get incorrect question from local storage and append on DOM', () => {
         wrapper.find('Answer-reset').simulate('click'); 
         //local storage test
       });
