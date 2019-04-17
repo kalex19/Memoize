@@ -18,3 +18,9 @@
   width: 40%;
   margin: 0;
 }
+
+@media screen and (max-width: 414px) {
+  .Question-count {
+    width: 60%;
+  }
+}

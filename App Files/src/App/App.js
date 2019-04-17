@@ -5,6 +5,7 @@ import Score from '../Score/Score.js';
 import QuestionCount from '../QuestionCount/QuestionCount.js';
 import QuestionCard from '../QuestionCard/QuestionCard.js';
 import AnswerCard from '../AnswerCard/AnswerCard.js';
+import { timingSafeEqual } from 'crypto';
 
 
 export default class App extends Component {
@@ -63,6 +64,21 @@ export default class App extends Component {
     })
   }
 
+  viewPractice = (e) => {
+    e.preventDefault()
+    //something with local storage
+  }
+
+  resetGame = (e) => {
+    this.setState({
+      data: [],
+      questionSetKey: 1,
+      start: false,
+      score: 0,
+      scoreAnimation: false, 
+    })
+  }
+
 
 
   render() {
@@ -93,10 +109,10 @@ export default class App extends Component {
       if(this.state.questionSetKey === 30){
         display = <div className="Reset-game">
         <h1>Game Over....</h1>
-        <p>Review Wrong Answers.</p>
-        <input id="reset" placeholder="Review" className="Answer-reset"/>
+        <p>Review Wrong Answers</p>
+        <input id="reset" type="Reset" value="Review" className="Answer-reset" onClick={this.viewPractice}/>
         <p>Play Game Again</p>
-      <input id="reset" type="Reset" className="Answer-reset"/>
+      <input id="reset" type="Reset" className="Answer-reset" onClick={this.resetGame}/>
       </div>;
   
      } else {

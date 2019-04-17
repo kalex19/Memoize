@@ -33,4 +33,9 @@
   font-size: 2rem;
 }
 
-
+@media screen and (max-width: 414px) {
+  .AnswerCard-container {
+    width: 90%;
+    margin: 0 5%;
+  }
+}

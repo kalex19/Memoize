@@ -68,14 +68,17 @@
   to {
     color: blue;
   }
-
+}
   @media screen and (max-width: 414px) {
     .App-header {
-      width: 60%;
-      border: 5px solid red;
+      width: 100%;
+    }
+
+    .App-title {
+      font-size: 1.5em;
+      margin: 20% 0;
     }
   }
-  //double check that is works
 
 
-}
+
