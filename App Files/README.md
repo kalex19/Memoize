@@ -14,9 +14,9 @@ Enzyme
 
 ## To Enjoy This Game:
 
-Fork this repo: 
+Fork this repo. 
 
-Clone the repo using 'git clone '
+Clone the repo using 'git clone git@github.com:{your github name here}/Memoize.git'
 
 ### `npm start`
 
