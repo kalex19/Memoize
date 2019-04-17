@@ -1,6 +1,6 @@
 @import '../variables.scss';
 
-.Score {
+  .Score {
     border: dashed 1px $main-color;
     display: block;
     justify-content: center;
@@ -9,23 +9,27 @@
   }
 
   .Score-animation {
-      animation: bounceIn 2s;
-      color: yellow;
-      font-size: 1em;
-      margin: 1%;
-      pointer-events: none; 
-    }
+    animation: bounceIn 2s;
+    color: yellow;
+    font-size: 1em;
+    margin: 1%;
+    pointer-events: none; 
+  }
     
   .Score-text {
     color: $main-color;
     font-size: .6em;
   }
 
+  //Score Block Hidden
+
   .App-hidden {
     margin: 0;
     visibility: hidden;
     width: 40%;
   }
+
+  //Animations
 
   @keyframes bounceIn {
     0% {

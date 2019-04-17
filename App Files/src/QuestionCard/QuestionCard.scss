@@ -1,11 +1,10 @@
 @import '../variables.scss';
 
-
 .QuestionCard-container {
-    background-color: $main-color;
-    box-shadow: 5px 8px black;
-    height: 40vh;
-    margin: 0px 30%;  
+  background-color: $main-color;
+  box-shadow: 5px 8px black;
+  height: 40vh;
+  margin: 0px 30%;  
 }
 
 .Question-image {
@@ -14,11 +13,12 @@
   max-width: 99%;
 }
 
+//Media Queries
+
 @media screen and (max-width: 414px) {
   .QuestionCard-container {
     margin: 0 5%;
     width: 90%;
   }
-
 }
 

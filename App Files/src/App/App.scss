@@ -31,6 +31,8 @@
   color: $button-accent-color;
 }
 
+//Start Game Button
+
 .App-btn {
   background-color: $background-color;
   border: $button-accent-color 3px dashed;
@@ -39,6 +41,8 @@
   margin: 5vh;
   padding: 2vh;
 }
+
+//Reset Game Button
 
 .Reset-game {
   color: $main-color;
@@ -55,6 +59,8 @@
   height: 9vh;
 }
 
+//Animations
+
 @keyframes App-logo-spin {
   from {
     color: $endgame-color;
@@ -63,16 +69,19 @@
     color: blue;
   }
 }
-  @media screen and (max-width: 414px) {
-    .App-header {
-      width: 100%;
-    }
 
-    .App-title {
-      font-size: 1.5em;
-      margin: 20% 0;
-    }
+// Media Queries
+
+@media screen and (max-width: 414px) {
+  .App-header {
+    width: 100%;
   }
+
+  .App-title {
+    font-size: 1.5em;
+    margin: 20% 0;
+  }
+}
 
 
 
