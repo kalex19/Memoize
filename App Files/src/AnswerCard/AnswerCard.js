@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
-import Style from './AnswerCard.scss';
-
+import './AnswerCard.scss';
 
 export default class AnswerCard extends Component {
   constructor(props) {
@@ -36,7 +35,7 @@ render() {
   
   return (
     <section className="AnswerCard-container">
-    <form onSubmit={this.submitAnswer}>
+      <form onSubmit={this.submitAnswer}>
         <div className="Answer-card">
          <input id="answerOne" value="1" type="radio" name='answer' className="Button-one" onChange={this.radioState}/>
           <label htmlFor="answerOne">{answer[0]}</label>
@@ -53,6 +52,5 @@ render() {
       </form>
     </section>
     )
-}
-
+  }
 } 
