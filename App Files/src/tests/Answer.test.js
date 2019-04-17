@@ -21,7 +21,9 @@ const mockScoreAnimation =jest.fn();
 const mockNoScoreAnimation=jest.fn();
 const mockIncrementKey=jest.fn();
 const mockIncrementScore=jest.fn();
-// const event = { preventDefault: () => {} };
+const mockSubmitAnswer=jest.fn();
+const mockRadioState=jest.fn();
+const event = { preventDefault: () => {} };
 
 
 describe('AnswerCard', () => {
@@ -37,6 +39,7 @@ describe('AnswerCard', () => {
         noScoreAnimation={mockNoScoreAnimation}
         incrementKey={mockIncrementKey}
         incrementScore={mockIncrementScore}
+        submitAnswer={mockSubmitAnswer}
         />
       );
     //   jest.spyOn(event, 'preventDefault');
@@ -50,15 +53,25 @@ describe('AnswerCard', () => {
         expect(wrapper.state()).toEqual({checkedAnswer: 0, noScoreAnimation: false});
     });
 
-    it('should update the checkedAnswer when radio button is clicked', () => {
-        expect(wrapper.state('checkedAnswer')).toEqual(0);
+    it('should update the checkedAnswer state when radio button is clicked', () => {
+        wrapper.find('input').simulate('change', event, {state:{ checkedAnswer: 0}} );
+         expect(mockRadioState).toHaveBeenCalled();
+        expect(wrapper.state('checkedAnswer')).toEqual(event.target.value);
       });
 
-    it('should invoke inplementScore() on click', () => {
-    wrapper.find('').simulate('click');
-    expect(mockIncrementScore).toBeCalled();
-    });
+      it('should submit an answer and verify on submit', () => {
+        wrapper.find('form').simulate('submit'}});
+        expect(mockSubmitAnswer).toHaveBeenCalled();
+      });
 
+    it('should invoke three methods on click', () => {
+        wrapper.find('form').simulate('submit', event, {state:{ checkedAnswer: mockDataObj.answerId}});
+        expect(mockIncrementScore).toHaveBeenCalled();
+        expect(mockScoreAnimation).toHaveBeenCalled();
+        expect(mockSwitchAnswer).toHaveBeenCalled();
+        expect(mockNoScoreAnimation).not.toBeCalled();
+    });
+    
     
 
 

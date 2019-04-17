@@ -30,7 +30,6 @@ export default class AnswerCard extends Component {
     }
   }
 
-
 render() {
 
   const { answer } = this.props.dataObj
