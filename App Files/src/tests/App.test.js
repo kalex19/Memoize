@@ -39,56 +39,47 @@ describe('App', () => {
       );
     });
 
-      it('should match the snapshot with all data passed in', () => {
-        expect(wrapper).toMatchSnapshot();
-      });
-
-      it('should have the proper default state', () => {
-        expect(wrapper.state()).toEqual({ data: [], questionSetKey: 1, start: false, score: 0, scoreAnimation: false  }); 
-      });
-
-      it('should handle start click', () => {
-        wrapper.find('App-btn').simulate('click');
-        expect(mockHandleClick).toHaveBeenCalled();
-        expect(wrapper.state()).toEqual({ questionSetKey: 1 }); 
-      });
-
-      it('should increment questionSetKey', () => {
-        expect(wrapper.state()).toEqual({ questionSetKey: questionSetKey + 1 }); 
-      });
-
-      it('should increment score', () => {
-        wrapper.find('form').simulate('submit');
-        expect(wrapper.state()).toEqual({ score: score + 1 }); 
-      });
-
-      it('should create score animation', () => {
-        wrapper.find('form').simulate('submit');
-        expect(wrapper.state({scoreAnimation})).toBeTruthy(); 
-      });
-
-      it('should not create score animation', () => {
-        wrapper.find('form').simulate('submit');
-        expect(wrapper.state({scoreAnimation})).toBeFalsy(); 
-      });
-
-      it('should get incorrect question from local storage and append on DOM', () => {
-        wrapper.find('Answer-reset').simulate('click'); 
-        //local storage test
-      });
-
-      it('should reset the game', () => {
-        expect(wrapper.state()).toEqual({ data: [], questionSetKey: 1, start: false, score: 0, scoreAnimation: false}); 
+    it('should match the snapshot with all data passed in', () => {
+      expect(wrapper).toMatchSnapshot();
     });
 
+    it('should have the proper default state', () => {
+      expect(wrapper.state()).toEqual({ data: [], questionSetKey: 1, start: false, score: 0, scoreAnimation: false  }); 
+    });
 
-     
+    it('should handle start click', () => {
+      wrapper.find('App-btn').simulate('click');
+      expect(mockHandleClick).toHaveBeenCalled();
+      expect(wrapper.state()).toEqual({ questionSetKey: 1 }); 
+    });
 
+    it('should increment questionSetKey', () => {
+      expect(wrapper.state()).toEqual({ questionSetKey: questionSetKey + 1 });
+    });
 
+    it('should increment score', () => {
+      wrapper.find('form').simulate('submit');
+      expect(wrapper.state()).toEqual({ score: score + 1 }); 
+    });
 
+    it('should create score animation', () => {
+      wrapper.find('form').simulate('submit');
+      expect(wrapper.state({scoreAnimation})).toBeTruthy(); 
+    });
 
-      
+    it('should not create score animation', () => {
+      wrapper.find('form').simulate('submit');
+      expect(wrapper.state({scoreAnimation})).toBeFalsy(); 
+    });
 
+    it('should get incorrect question from local storage and append on DOM', () => {
+      wrapper.find('Answer-reset').simulate('click'); 
+      //local storage test
+    });
+
+    it('should reset the game', () => {
+      expect(wrapper.state()).toEqual({ data: [], questionSetKey: 1, start: false, score: 0, scoreAnimation: false}); 
+    });
   });
 
 
