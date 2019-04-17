@@ -21,27 +21,14 @@ export default class AnswerCard extends Component {
   submitAnswer = (e) => {
     e.preventDefault()
     if(this.state.checkedAnswer === this.props.dataObj.answerId){
-      // this.props.incrementScore()
-      this.scoreAnimation()
+      this.props.incrementScore()
+      this.props.scoreAnimation()
       this.props.switchAnswer()
     } else {
-      this.noScoreAnimation()
+      this.props.noScoreAnimation()
       this.props.switchAnswer()
     }
   }
-
-  scoreAnimation = () => {
-    this.setState({
-     scoreAnimation: true
-    })
-  }
-
-  noScoreAnimation = () => {
-    this.setState({
-      noScoreAnimation: true
-    })
-  }
-  //add to this, what happens?
 
 
 render() {

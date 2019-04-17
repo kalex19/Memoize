@@ -13,7 +13,7 @@ render () {
     return (
             <div className={this.props.start ? "App-hidden" : "Score"}>
                 <h1 className="Score-text">SCORE:</h1>
-                <p className={this.props.scoreAnimation? "Score-animation" : "Score-text"}>{this.props.score} pts</p>
+                <p className={this.props.scoreAnimation ? "Score-animation" : "Score-text"}>{this.props.score} pts</p>
             </div>
         )
     }

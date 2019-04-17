@@ -38,7 +38,8 @@ return (
       dataObj={this.props.dataObj}
       score={this.props.score}  
       questionSetKey={this.props.questionSetKey}
-      scoreAnimation ={this.state.scoreAnimation}
+      scoreAnimation ={this.props.scoreAnimation}
+      noScoreAnimation={this.props.noScoreAnimation}
       switchAnswer={this.switchAnswer}
       incrementScore={this.props.incrementScore}/>
       </div>

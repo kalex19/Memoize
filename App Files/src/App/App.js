@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './App.scss';
-import Data from '../Data/Data.js';
+// import Data from '../Data/data.js';
 import Score from '../Score/Score.js';
 import QuestionCount from '../QuestionCount/QuestionCount.js';
 import QuestionCard from '../QuestionCard/QuestionCard.js';
@@ -16,6 +16,7 @@ export default class App extends Component {
     start: false,
     score: 0,
     scoreAnimation: false,
+
     
   }
 }
@@ -50,6 +51,20 @@ export default class App extends Component {
     }) 
   }
 
+  scoreAnimation = () => {
+    this.setState({
+     scoreAnimation: true
+    })
+  }
+
+  noScoreAnimation = () => {
+    this.setState({
+      scoreAnimation: false
+    })
+  }
+
+
+
   render() {
 
     let score;
@@ -69,7 +84,8 @@ export default class App extends Component {
       dataObj={this.state.data[this.state.questionSetKey]}
       score={this.state.score}
       questionSetKey={this.state.questionSetKey}
-      scoreAnimation ={this.state.scoreAnimation}
+      scoreAnimation ={this.scoreAnimation}
+      noScoreAnimation={this.noScoreAnimation}
       incrementKey={this.incrementQuestionSetKey}
       incrementScore={this.incrementScore} />
     }
