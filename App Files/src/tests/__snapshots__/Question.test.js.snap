@@ -1,3 +1,40 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`QuestionCard should match the snapshot with all data passed in 1`] = `undefined`;
+exports[`QuestionCard should match the snapshot with all data passed  in 1`] = `
+<div>
+  <div
+    className="QuestionCard-container"
+  >
+    <img
+      alt="code snippet image"
+      className="Question-image"
+      src="https://imgur.com/9AC4cch"
+    />
+  </div>
+  <div
+    className="AnswerCard-container"
+  >
+    <AnswerCard
+      dataObj={
+        Object {
+          "answer": Array [
+            "className should be class",
+            "className should be class and the regexp[a - Z]\\\\w+ should be[A - Z]\\\\w+",
+            "The label should be in a seperate div from the input div",
+          ],
+          "answerId": 2,
+          "codeSnippetQ": "https://imgur.com/9AC4cch",
+          "language": "HTML",
+          "questionSetKey": 1,
+        }
+      }
+      incrementScore={[MockFunction]}
+      noScoreAnimation={[MockFunction]}
+      questionSetKey={1}
+      score={0}
+      scoreAnimation={[MockFunction]}
+      switchAnswer={[Function]}
+    />
+  </div>
+</div>
+`;

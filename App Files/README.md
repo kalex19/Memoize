@@ -2,6 +2,16 @@ The task was to build a tool to help fellow codering students practice a coding 
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app). 
 
+## Tools Used
+
+HTML
+CSS
+JavaScript
+JSX
+React
+Jest
+Enzyme
+
 ## Available Scripts
 
 In the project directory, you can run:
@@ -87,3 +97,7 @@ This section has moved here: https://facebook.github.io/create-react-app/docs/tr
 ### Game Over
 
 ![alt text](src/images/GameOver.png "Game Over")
+
+### Mobile View
+
+![alt text](src/images/MobileView.png "Mobile View")

@@ -1,5 +1,5 @@
 import React from 'react';
-import Question from '../QuestionCard/QuestionCard.js';
+import QuestionCard from '../QuestionCard/QuestionCard.js';
 import { shallow } from 'enzyme';
 import { configure } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
@@ -21,6 +21,7 @@ configure({ adapter: new Adapter() });
   const mockIncrementScore=jest.fn();
   const mockSwitchAnswer=jest.fn();
   const mockEndGame=jest.fn();
+  const event = { preventDefault: () => {} };
 
 describe('QuestionCard', () => {
     let wrapper;
@@ -41,21 +42,22 @@ describe('QuestionCard', () => {
       );
     });
 
-    it('should match the snapshot with all data passed in', () => {
+    it('should match the snapshot with all data passed  in', () => {
         expect(wrapper).toMatchSnapshot();
     });
-
+  
     it('should have the proper default state', () => {
       expect(wrapper.state()).toEqual({codeSnippetQ: '' });
     });
 
     it('should increment the key when switching the answer ', () => {
-        expect(mockIncrementKey).toHaveBeenCalled();
+        wrapper.instance().incrementKey()
         expect(wrapper.state().topEqual({questionSetKey: 30}));
-        expect(mockEndGame).toHaveBeenCalled();
+        wrapper.instance().endGame()
     });
 
     it('should reset state of start to false ', () => {
+      wrapper.find('.Answer-reset').simulate('click', event);
       expect(mockEndGame).toHaveBeenCalled();
       expect(wrapper.state()).toEqual({start: false });
     });
