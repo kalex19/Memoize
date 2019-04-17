@@ -93,7 +93,6 @@ export default class App extends Component {
         questionCount={this.state.questionSetKey} 
         state={this.state.start} />
       questionCard=<QuestionCard 
-<<<<<<< HEAD
         dataObj={this.state.data[this.state.questionSetKey]}
         score={this.state.score}
         questionSetKey={this.state.questionSetKey}
@@ -101,16 +100,9 @@ export default class App extends Component {
         noScoreAnimation={this.noScoreAnimation}
         incrementKey={this.incrementQuestionSetKey}
         incrementScore={this.incrementScore} />
-=======
-      dataObj={this.state.data[this.state.questionSetKey]}
-      questionSetKey={this.state.questionSetKey}
-      scoreAnimation ={this.state.scoreAnimation}
-      incrementKey={this.incrementQuestionSetKey}
-      incrementScore={this.incrementScore} />
->>>>>>> 63bf484f0d9a40a2930331c6e545226367d2c7eb
     }
       
-    if(this.state.questionSetKey === 30){
+    if(this.state.questionSetKey === 30) {
       display = 
       <div className="Reset-game">
         <h1>Game Over....</h1>
