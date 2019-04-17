@@ -2,8 +2,6 @@ import React, {Component} from 'react';
 import Style from './QuestionCard.scss';
 import AnswerCard from '../AnswerCard/AnswerCard.js';
 
-
-
 export default class QuestionCard extends Component {
   constructor(props) {
   super(props);

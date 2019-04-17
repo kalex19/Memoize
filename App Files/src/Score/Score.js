@@ -4,9 +4,6 @@ import Style from './Score.scss';
 export default class Score extends Component {
   constructor(props){
   super(props);
-  this.state = {
-
-  }
 }
 
 render () {

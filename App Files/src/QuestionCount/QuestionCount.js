@@ -4,9 +4,6 @@ import Style from './QuestionCount.scss';
 export default class QuestionCount extends Component {
   constructor(props){
   super(props);
-  this.state = {
-
-  }
 }
 
 render () {

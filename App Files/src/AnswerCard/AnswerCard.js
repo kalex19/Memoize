@@ -7,7 +7,7 @@ export default class AnswerCard extends Component {
     super(props);
     this.state = {
       checkedAnswer: 0,
-      noScoreAnimation: false,
+      noScoreAnimation: false
     }
   }
 

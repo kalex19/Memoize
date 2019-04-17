@@ -17,8 +17,6 @@ export default class App extends Component {
     start: false,
     score: 0,
     scoreAnimation: false,
-
-    
   }
 }
 
@@ -78,8 +76,6 @@ export default class App extends Component {
       scoreAnimation: false, 
     })
   }
-
-
 
   render() {
 
