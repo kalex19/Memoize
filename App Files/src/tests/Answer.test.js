@@ -15,14 +15,13 @@ configure({ adapter: new Adapter() });
       };
     const mockScore=0;
     const mockQuestionSetKey=1;
-    const mockAnswerId=0;
-    const mockWrongAnswerId=1;
     const mockScoreAnimation =jest.fn();
     const mockNoScoreAnimation=jest.fn();
     const mockIncrementKey=jest.fn();
     const mockIncrementScore=jest.fn();
     const mockSubmitAnswer=jest.fn();
     const mockRadioState=jest.fn();
+    const mockSwitchAnswer=jest.fn();
     const event = { preventDefault: () => {} };
 
 describe('AnswerCard', () => {
@@ -34,6 +33,7 @@ describe('AnswerCard', () => {
         dataObj={mockDataObj}
         score={mockScore}
         questionSetKey={mockQuestionSetKey}
+        switchAnswer={mockSwitchAnswer}
         scoreAnimation ={mockScoreAnimation}
         noScoreAnimation={mockNoScoreAnimation}
         incrementKey={mockIncrementKey}
@@ -52,26 +52,21 @@ describe('AnswerCard', () => {
     });
 
     it('should update the checkedAnswer state when radio button is clicked', () => {
-        wrapper.find('input').simulate('change', event, {state:{ checkedAnswer: 0}});
-        expect(mockRadioState).toHaveBeenCalled();
-        expect(wrapper.state('checkedAnswer')).toEqual(event.target.value);
+        expect(wrapper.state('checkedAnswer')).toEqual(0)
+        wrapper.find('.btn').simulate('change', {event:{target:"value"}})
+        expect(wrapper.state('checkedAnswer')).toEqual("value");
     });
 
     it('should submit an answer and verify on submit', () => {
-        wrapper.find('form').simulate('submit'});
+        wrapper.find('.form').simulate('submit', event);
         expect(mockSubmitAnswer).toHaveBeenCalled();
     });
 
     it('should invoke three methods on click', () => {
-        wrapper.find('form').simulate('submit', event, {state:{ checkedAnswer: mockDataObj.answerId}});
+        wrapper.find('.form').simulate('submit', event, {state:{ checkedAnswer: mockDataObj.answerId}});
         expect(mockIncrementScore).toHaveBeenCalled();
         expect(mockScoreAnimation).toHaveBeenCalled();
         expect(mockSwitchAnswer).toHaveBeenCalled();
         expect(mockNoScoreAnimation).not.toBeCalled();
     });
-    
-    it("should save answer object to local storage", () => {
-      //test here
-    });
-    
   });

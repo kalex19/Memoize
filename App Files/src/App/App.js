@@ -61,9 +61,6 @@ export default class App extends Component {
   viewPractice = (e) => {
     e.preventDefault()
     let arr = JSON.parse(localStorage.getItem('dataObj'));
-    this.setState({
-
-    })
     //render on dom
   }
 

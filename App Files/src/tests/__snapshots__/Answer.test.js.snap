@@ -5,13 +5,15 @@ exports[`AnswerCard should match the snapshot with all data passed in 1`] = `
   className="AnswerCard-container"
 >
   <form
+    className="form"
     onSubmit={[Function]}
   >
     <div
       className="Answer-card"
     >
       <input
-        className="Button-one"
+        checked={true}
+        className="Button-one btn"
         id="answerOne"
         name="answer"
         onChange={[Function]}
@@ -28,7 +30,7 @@ exports[`AnswerCard should match the snapshot with all data passed in 1`] = `
       className="Answer-card"
     >
       <input
-        className="Button-two"
+        className="Button-two btn"
         id="answerTwo"
         name="answer"
         onChange={[Function]}
@@ -45,7 +47,7 @@ exports[`AnswerCard should match the snapshot with all data passed in 1`] = `
       className="Answer-card"
     >
       <input
-        className="Button-three"
+        className="Button-three btn"
         id="answerThree"
         name="answer"
         onChange={[Function]}

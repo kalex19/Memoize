@@ -41,17 +41,17 @@ render() {
   
   return (
     <section className="AnswerCard-container">
-      <form onSubmit={this.submitAnswer}>
+      <form className="form" onSubmit={this.submitAnswer}>
         <div className="Answer-card">
-         <input id="answerOne" value="1" type="radio" name='answer' className="Button-one" onChange={this.radioState} checked/>
+         <input id="answerOne" value="1" type="radio" name='answer' className="Button-one btn" onChange={this.radioState} checked/>
           <label htmlFor="answerOne">{answer[0]}</label>
         </div>
         <div className="Answer-card">
-          <input id="answerTwo" value="2" type="radio" name='answer' className="Button-two" onChange={this.radioState}/>
+          <input id="answerTwo" value="2" type="radio" name='answer' className="Button-two btn" onChange={this.radioState}/>
           <label htmlFor="answerTwo">{answer[1]}</label>
         </div>
         <div className="Answer-card">
-          <input id="answerThree" value="3" type="radio" name='answer' className="Button-three" onChange={this.radioState}/>
+          <input id="answerThree" value="3" type="radio" name='answer' className="Button-three btn" onChange={this.radioState}/>
           <label htmlFor="answerThree">{answer[2]}</label>
         </div>
           <input type="submit" className="Answer-submit"/>
