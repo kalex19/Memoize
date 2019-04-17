@@ -2,14 +2,17 @@
 
 
 .QuestionCard-container {
-  background-color: $main-color; 
-  margin: 0 20%;
-  min-height: 30vh;
-  width: 60%;
+    max-width: 60vh;
+    background-color: $main-color;
+    margin: 0px 35%;
+    height: 40vh;
+    box-shadow: 5px 8px black;
 }
 
 .Question-image {
   margin: 2% 0;
+  max-width: 99%;
+  max-height: 80%;
 }
 
 @media screen and (max-width: 414px) {

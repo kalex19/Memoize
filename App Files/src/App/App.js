@@ -64,7 +64,11 @@ export default class App extends Component {
 
   viewPractice = (e) => {
     e.preventDefault()
-    //something with local storage
+    // JSON.parse(localStorage.getItem('posts')) || [];
+    // targetIdea.saveToStorage(ideas)
+    // saveToStorage(array) {
+    //   localStorage.setItem('posts', JSON.stringify(array));
+   // }//something with local storage
   }
 
   resetGame = (e) => {

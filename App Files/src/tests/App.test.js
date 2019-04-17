@@ -73,7 +73,8 @@ describe('App', () => {
       });
 
       it('should save incoreect question to local storage', () => {
-          //local storage test
+        wrapper.find('Answer-reset').simulate('click'); 
+        //local storage test
       });
 
       it('should reset the game', () => {
