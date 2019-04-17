@@ -72,14 +72,18 @@ This section has moved here: https://facebook.github.io/create-react-app/docs/tr
 
 # App Images
 
-###Home Page
+### Home Page
+
 ![alt text](src/images/HomePage.png "Home Page")
 
-###Header
+### Header
+
 ![alt text](src/images/Header.png "Header")
 
-###Points
+### Points
+
 ![alt text](src/images/Points.png "Points")
 
-###Game Over
+### Game Over
+
 ![alt text](src/images/GameOver.png "Game Over")
