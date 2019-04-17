@@ -33,7 +33,6 @@ render() {
         <img className="Question-image" src={codeSnippetQ} alt="code snippet image"/>
       </div>
       <div className="AnswerCard-container">
-<<<<<<< HEAD
         <AnswerCard 
         dataObj={this.props.dataObj}
         score={this.props.score}  
@@ -42,14 +41,6 @@ render() {
         noScoreAnimation={this.props.noScoreAnimation}
         switchAnswer={this.switchAnswer}
         incrementScore={this.props.incrementScore}/>
-=======
-      <AnswerCard 
-      dataObj={this.props.dataObj}
-      questionSetKey={this.props.questionSetKey}
-      scoreAnimation ={this.state.scoreAnimation}
-      switchAnswer={this.switchAnswer}
-      incrementScore={this.props.incrementScore}/>
->>>>>>> 63bf484f0d9a40a2930331c6e545226367d2c7eb
       </div>
     </div> 
       ) 

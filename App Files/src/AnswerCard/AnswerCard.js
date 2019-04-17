@@ -21,11 +21,7 @@ export default class AnswerCard extends Component {
     e.preventDefault()
     if(this.state.checkedAnswer === this.props.dataObj.answerId){
       this.props.incrementScore()
-<<<<<<< HEAD
       this.props.scoreAnimation()
-=======
-      this.scoreAnimation()
->>>>>>> 63bf484f0d9a40a2930331c6e545226367d2c7eb
       this.props.switchAnswer()
     } else {
       this.props.noScoreAnimation()
