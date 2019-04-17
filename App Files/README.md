@@ -1,4 +1,6 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+The task was to build a tool to help fellow codering students practice a coding concept. This app displays code snippets of common syntax and/or logic mistakes in the following languages/libraries: HTML, CSS, JS, JSX, SCSS, REACT. The user selects the correct answer and gains points. The next iternation of this app will save all incorrect questions so users can revisit them and pratice them later and allow users to choose their prefered practice coding language.
+
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app). 
 
 ## Available Scripts
 
@@ -63,6 +65,11 @@ This section has moved here: https://facebook.github.io/create-react-app/docs/ad
 
 This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
 
+
 ### `npm run build` fails to minify
 
 This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+
+### App Images
+
+
