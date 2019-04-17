@@ -1,20 +1,29 @@
 @import '../variables.scss';
 
 .Question-count {
-    display: block; 
-    height: 15vh;
-    width: 25%;
-    margin: 0 2%;
-    border: dashed 1px $main-color;
+  border: dashed 1px $main-color;
+  display: block; 
+  margin: 0 2%;
+  width: 15%;  
 }
 
 .Question-count-text {
-  font-size: 3vh;
   color: $main-color;
+  font-size: 3vh;
 }
 
+//Question Block Hidden
+
 .App-hidden {
+  margin: 0;
   visibility: hidden;
   width: 40%;
-  margin: 0;
+}
+
+//Media Queries
+
+@media screen and (max-width: 414px) {
+  .Question-count {
+    width: 60%;
+  }
 }

@@ -1,0 +1,67 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AnswerCard should match the snapshot with all data passed in 1`] = `
+<section
+  className="AnswerCard-container"
+>
+  <form
+    onSubmit={[Function]}
+  >
+    <div
+      className="Answer-card"
+    >
+      <input
+        className="Button-one"
+        id="answerOne"
+        name="answer"
+        onChange={[Function]}
+        type="radio"
+        value="1"
+      />
+      <label
+        htmlFor="answerOne"
+      >
+        className should be class
+      </label>
+    </div>
+    <div
+      className="Answer-card"
+    >
+      <input
+        className="Button-two"
+        id="answerTwo"
+        name="answer"
+        onChange={[Function]}
+        type="radio"
+        value="2"
+      />
+      <label
+        htmlFor="answerTwo"
+      >
+        className should be class and the regexp[a - Z]\\w+ should be[A - Z]\\w+
+      </label>
+    </div>
+    <div
+      className="Answer-card"
+    >
+      <input
+        className="Button-three"
+        id="answerThree"
+        name="answer"
+        onChange={[Function]}
+        type="radio"
+        value="3"
+      />
+      <label
+        htmlFor="answerThree"
+      >
+        The label should be in a seperate div from the input div
+      </label>
+    </div>
+    <input
+      className="Answer-submit"
+      type="submit"
+    />
+  </form>
+</section>
+`;

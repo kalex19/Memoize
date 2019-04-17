@@ -1,0 +1,18 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`QuestionCount should match the snapshot with all data passed in 1`] = `
+<div
+  className="Question-count"
+>
+  <h1
+    className="Question-count-text"
+  >
+    QUESTION #
+  </h1>
+  <p
+    className="Question-count-text"
+  >
+     / 30
+  </p>
+</div>
+`;

@@ -1,13 +1,12 @@
 import React, {Component} from 'react';
-import Style from './AnswerCard.scss';
-
+import './AnswerCard.scss';
 
 export default class AnswerCard extends Component {
   constructor(props) {
     super(props);
     this.state = {
       checkedAnswer: 0,
-      noScoreAnimation: false,
+      noScoreAnimation: false
     }
   }
 
@@ -22,27 +21,17 @@ export default class AnswerCard extends Component {
     e.preventDefault()
     if(this.state.checkedAnswer === this.props.dataObj.answerId){
       this.props.incrementScore()
+<<<<<<< HEAD
+      this.props.scoreAnimation()
+=======
       this.scoreAnimation()
+>>>>>>> 63bf484f0d9a40a2930331c6e545226367d2c7eb
       this.props.switchAnswer()
     } else {
-      this.noScoreAnimation()
+      this.props.noScoreAnimation()
       this.props.switchAnswer()
     }
   }
-
-  scoreAnimation = () => {
-    this.setState({
-     scoreAnimation: true
-    })
-  }
-
-  noScoreAnimation = () => {
-    this.setState({
-      noScoreAnimation: true
-    })
-  }
-  //add to this, what happens?
-
 
 render() {
 
@@ -50,7 +39,7 @@ render() {
   
   return (
     <section className="AnswerCard-container">
-    <form onSubmit={this.submitAnswer}>
+      <form onSubmit={this.submitAnswer}>
         <div className="Answer-card">
          <input id="answerOne" value="1" type="radio" name='answer' className="Button-one" onChange={this.radioState}/>
           <label htmlFor="answerOne">{answer[0]}</label>
@@ -67,6 +56,5 @@ render() {
       </form>
     </section>
     )
-}
-
+  }
 } 
