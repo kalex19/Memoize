@@ -14,7 +14,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 ## Successes
 This project was a culmination of everything I have learned so far in this module. Completing the solo project was challenging, however by investing time in whiteboarding and pseudocoding the project, I was able to move at a steady pace and navigate my way through every problem that arose. Trying out animations was also enjoyable.
 
-## Challeneges
+## Challenges
 No challenge was too overwhelming, however there are still a few issues that did not get taken care of by the deadline. (See issues below).
 
 ## Technologies Used
