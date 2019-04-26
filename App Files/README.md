@@ -74,10 +74,9 @@ See the section about [running tests](https://facebook.github.io/create-react-ap
 
 ### Issues
 
-* Local storage is not functional
 * Not all functionality is tested
 * Images are not all the same size (too much container movement to fit image)
-* Cards cannot be saved for review after the game is complete
+* Cards cannot be saved for review after the game is complete (local storage is not functional)
 
 ## Collaborators
 * Katie Lewis (https://github.com/kalex19)
