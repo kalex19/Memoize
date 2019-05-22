@@ -2,7 +2,7 @@
 
 ## Description
 
-The task was to build a tool to help fellow codering students practice a coding concept. This app displays code snippets of common syntax and/or logic mistakes in the following languages/libraries: HTML, CSS, JS, JSX, SCSS, REACT. The user selects the correct answer and gains points. The next iternation of this app will save all incorrect questions so users can revisit them and pratice them later and allow users to choose their prefered practice coding language.
+The task was to build a tool to help fellow programming students practice identifying code syntax/logic errors. This app displays code snippets of common syntax and/or logic mistakes in the following languages/libraries: HTML, CSS, JS, JSX, SCSS, REACT. The user selects the correct answer and gains points. The next iteration of this app will save all incorrect questions so users can revisit them and pratice them later. It will also allow users to choose their prefered practice coding language.
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app). 
 
