@@ -79,7 +79,7 @@ See the section about [running tests](https://facebook.github.io/create-react-ap
 * Cards cannot be saved for review after the game is complete (local storage is not functional)
 
 ## Collaborators
-* Katie Lewis (https://github.com/kalex19)
+* [Katie Lewis](https://github.com/kalex19)
 
 ### License
 Turing School of Software (for providing the project specifications).
